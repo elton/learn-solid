@@ -1,8 +1,9 @@
 import { Component, For } from 'solid-js';
 import logo from './assets/logo.svg';
 import Card from './components/Card';
-import { Label, ListMultiChildren } from './components/Children';
+import { Label, ListMap, ListMultiChildren } from './components/Children';
 import Counter from './components/Counter';
+import Event from './components/Event';
 import { CardProps } from './types';
 
 const cards: CardProps[] = [
@@ -28,6 +29,19 @@ const cards: CardProps[] = [
       </ListMultiChildren>
     ),
   },
+  {
+    title: 'map child',
+    description: 'map children',
+    children: (
+      <ListMap>
+        <div>Second</div>
+        <Label>
+          <span class='text-purple-800'>Edison!</span>
+        </Label>
+      </ListMap>
+    ),
+  },
+  { title: 'Event', description: 'Mouse Event', children: <Event /> },
 ];
 
 const App: Component = () => {
@@ -39,7 +53,7 @@ const App: Component = () => {
           Solid.js examples
         </h1>
       </div>
-      <div class='flex'>
+      <div class='flex flex-wrap justify-center'>
         <For each={cards}>
           {(card, index) => (
             <Card

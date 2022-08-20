@@ -4,5 +4,5 @@ export interface CardProps {
   // add props here
   title: string;
   description?: string;
-  children: JSX.Element;
+  children: JSX.Element | JSX.ArrayElement;
 }
